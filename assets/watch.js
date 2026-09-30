@@ -1,5 +1,7 @@
 // The watch in the hero: twelve pads of octave 5, arranged like the app (four semitones to a column),
 // playing through Web Audio. Tapping the instrument name steps through the four instruments.
+// Names come from the app's catalog for the page's language: c shows its octave as in the app, and each pad
+// reads as VoiceOver reads it there ("C sharp 5").
 
 (() => {
   const watch = document.querySelector(".watch");
@@ -8,6 +10,7 @@
   const pads = watch.querySelector(".pads");
   const instrumentButton = watch.querySelector(".watch-status button");
   const names = pads.dataset.names.split(",");
+  const spoken = pads.dataset.spoken.split(",");
   const instruments = instrumentButton.dataset.instruments.split(",");
   const voices = ["piano", "strings", "brass", "voice"];
   let voice = 0;
@@ -18,9 +21,11 @@
   for (let semitone = 0; semitone < 12; semitone++) {
     const pad = document.createElement("button");
     pad.type = "button";
-    pad.className = "pad" + ([1, 3, 6, 8, 10].includes(semitone) ? "" : " light");
-    pad.textContent = names[semitone];
-    pad.setAttribute("aria-label", names[semitone] + "5");
+    pad.className = "pad" + ([1, 3, 6, 8, 10].includes(semitone) ? "" : " light") + (semitone === 0 ? " home" : "");
+    pad.textContent = semitone === 0 ? names[0] + "5" : names[semitone];
+    pad.setAttribute("aria-label", spoken[semitone] + " 5");
+    // The grid runs left to right, but a name like "دو5" reads in the page's own direction.
+    pad.dir = document.documentElement.dir;
     pad.dataset.semitone = semitone;
     pads.append(pad);
   }
@@ -146,8 +151,14 @@
     if (pad && event.detail === 0) strike(pad);
   });
 
+  function labelInstrument() {
+    instrumentButton.textContent = instruments[voice];
+    instrumentButton.setAttribute("aria-label", instrumentButton.dataset.label.replace("{name}", instruments[voice]));
+  }
+  labelInstrument();
+
   instrumentButton.addEventListener("click", () => {
     voice = (voice + 1) % voices.length;
-    instrumentButton.textContent = instruments[voice];
+    labelInstrument();
   });
 })();

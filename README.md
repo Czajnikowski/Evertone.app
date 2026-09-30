@@ -1,13 +1,29 @@
 # evertone.app
 
-Strona aplikacji [Evertone](https://evertone.app) na Apple Watch. Statyczny HTML/CSS/JS, bez kroku budowania,
+Strona aplikacji [Evertone](https://evertone.app) na Apple Watch, w 17 językach aplikacji. Statyczny HTML/CSS/JS,
 publikowany przez GitHub Pages z gałęzi `main` (katalog główny). Domena jest w pliku `CNAME`.
 
-- `index.html`, `privacy.html`, `support.html` to wersja polska, a `en/` angielska.
-  `privacy.html` i `support.html` to adresy Privacy Policy i Support w App Store Connect.
+Strony HTML są generowane. Nie edytuj ich ręcznie, zmieniaj `src/` i przebuduj:
+
+```
+python3 tools/sync-app-strings.py ../Evertone/Evertone/Localizable.xcstrings   # gdy zmienią się teksty w aplikacji
+python3 tools/check-translation.py                                             # po zmianie tłumaczeń
+python3 tools/build.py
+```
+
+- `src/pages/` to szablony: `index.html`, `privacy.html` (Privacy Policy URL), `support.html` (Support URL)
+  oraz wspólne `_head.html` i `_foot.html`.
+- `src/i18n/<język>.json` to teksty strony; `pl.json` jest źródłem, `en.json` wzorcem dla sprawdzarki.
+  `{app.*}` to słowa z aplikacji (instrumenty, nazwy nut, „Na ucho”) z `src/i18n/app.json`,
+  więc strona nazywa rzeczy tak samo jak aplikacja w każdym języku.
+- Polski jest w katalogu głównym, pozostałe języki w podkatalogach (`en/`, `de/`, …, `zh-hant/`); arabski i hebrajski
+  od prawej do lewej. Polska strona przy pierwszej wizycie przechodzi na język przeglądarki (`assets/lang.js`),
+  a wybór z menu języków jest zapamiętywany.
 - `assets/base.css` to układ, a `assets/style.css` styl i kolory w wersji jasnej i ciemnej.
+  Obie uwzględniają zwiększony kontrast, ograniczenie ruchu i wymuszone kolory systemu.
 - `assets/theme.js`: tryb jasny lub ciemny idzie za systemem; przycisk w nagłówku przełącza system → jasny → ciemny.
-- `assets/watch.js`: grywalny zegarek na stronie głównej (Web Audio).
+- `assets/watch.js`: grywalny zegarek na stronie głównej (Web Audio), z nazwami nut i etykietami VoiceOver z aplikacji.
 - Bez zewnętrznych skryptów, czcionek i analityki: strona obiecuje, że niczego nie śledzi.
+- Adres kontaktowy (`EMAIL`) jest w `tools/build.py`.
 
 Podgląd lokalny: `python3 -m http.server`, potem http://localhost:8000.

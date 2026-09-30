@@ -1,0 +1,105 @@
+  <main id="main">
+    <section class="hero wrap">
+      <div>
+        <p class="eyebrow">{{hero.eyebrow}}</p>
+        <h1>{{hero.title}}</h1>
+        <p class="lead">{{hero.lead}}</p>
+        <div class="cta">
+          <span class="store" aria-disabled="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h8l1 3a4 4 0 0 1 3 4v6a4 4 0 0 1-3 4l-1 3H8l-1-3a4 4 0 0 1-3-4V9a4 4 0 0 1 3-4l1-3Zm0 5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8Z"/></svg>
+            <span><small>{{hero.soon}}</small>{{hero.store}}</span>
+          </span>
+          <span class="req">{{hero.requirements}}</span>
+        </div>
+      </div>
+
+      <figure class="watch">
+        <!-- Left to right in every language, like the pads in the app. -->
+        <div class="watch-body" dir="ltr">
+          <div class="watch-case">
+            <div class="watch-screen">
+              <div class="watch-status">
+                <button type="button" lang="{{lang}}" data-instruments="{{instruments}}" data-label="{{app.instrumentLabel}}" title="{{app.chooseInstrument}}">{{app.piano}}</button>
+                <span aria-hidden="true">9:41</span>
+              </div>
+              <div class="pads" role="group" lang="{{lang}}" aria-label="{{octave5}}" data-names="{{app.noteNames}}" data-spoken="{{app.spokenNames}}"></div>
+            </div>
+          </div>
+          <div class="watch-crown" aria-hidden="true"></div>
+        </div>
+        <figcaption>{{watch.caption}}</figcaption>
+      </figure>
+    </section>
+
+    <section class="section wrap" aria-labelledby="why">
+      <div class="section-head">
+        <h2 id="why">{{why.title}}</h2>
+        <p>{{why.lead}}</p>
+      </div>
+      <ul class="cards">
+        <li class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 20 14 11M14 11l2-6 3 3-6 2M9 7c1.5-1.5 4-1.5 5.5 0"/></svg>
+          <h3>{{why.tuning.title}}</h3>
+          <p>{{why.tuning.text}}</p>
+        </li>
+        <li class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 20c0-3 2.5-5 5-5s5 2 5 5M12 20c0-3 2.5-5 5-5s5 2 5 5"/></svg>
+          <h3>{{why.choir.title}}</h3>
+          <p>{{why.choir.text}}</p>
+        </li>
+        <li class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+          <h3>{{why.sing.title}}</h3>
+          <p>{{why.sing.text}}</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section wrap" id="ear" aria-labelledby="ear-title">
+      <div class="section-head">
+        <p class="eyebrow">{{ear.eyebrow}}</p>
+        <h2 id="ear-title">{{ear.title}}</h2>
+        <p>{{ear.lead}}</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>{{ear.step1.title}}</h3>
+          <p>{{ear.step1.text}}</p>
+        </li>
+        <li>
+          <h3>{{ear.step2.title}}</h3>
+          <p>{{ear.step2.text}}</p>
+        </li>
+        <li>
+          <h3>{{ear.step3.title}}</h3>
+          <p>{{ear.step3.text}}</p>
+        </li>
+      </ol>
+      <p class="aside">{{ear.fallback}}</p>
+    </section>
+
+    <section class="section wrap" aria-labelledby="features">
+      <div class="section-head">
+        <h2 id="features">{{features.title}}</h2>
+      </div>
+      <ul class="features">
+        <li><strong>{{features.instruments.title}}</strong><span>{{features.instruments.text}}</span></li>
+        <li><strong>{{features.octaves.title}}</strong><span>{{features.octaves.text}}</span></li>
+        <li><strong>{{features.pads.title}}</strong><span>{{features.pads.text}}</span></li>
+        <li><strong>{{features.crown.title}}</strong><span>{{features.crown.text}}</span></li>
+        <li><strong>{{features.instant.title}}</strong><span>{{features.instant.text}}</span></li>
+        <li><strong>{{features.everyone.title}}</strong><span>{{features.everyone.text}}</span></li>
+      </ul>
+    </section>
+
+    <section class="section wrap" aria-labelledby="privacy">
+      <div class="promise">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke-linecap="round"/></svg>
+        <div>
+          <h2 id="privacy">{{promise.title}}</h2>
+          <p>{{promise.text}} <a href="privacy.html">{{promise.link}}</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+

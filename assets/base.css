@@ -74,17 +74,23 @@ p {
   margin-inline: auto;
 }
 
+/* Clipped rather than moved off-screen, which in right-to-left pages would widen the page sideways. */
 .skip {
   position: absolute;
-  left: -999px;
-}
-
-.skip:focus {
-  left: var(--gutter);
+  inset-inline-start: var(--gutter);
   top: var(--gutter);
   z-index: 10;
   background: var(--bg);
   padding: 8px 12px;
+}
+
+.skip:not(:focus) {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* Header */
@@ -292,23 +298,27 @@ p {
   cursor: pointer;
   border-radius: 22%/30%;
   display: grid;
-  place-items: end start;
-  padding: 0 0 6% 10%;
-  font: 600 clamp(0.6rem, 2.6vw, 0.72rem) / 1 ui-rounded, system-ui, sans-serif;
+  place-items: center;
+  font: 500 clamp(0.7rem, 3.4vw, 0.95rem) / 1 ui-rounded, system-ui, sans-serif;
   background: var(--pad-dark);
-  color: rgba(255, 255, 255, 0.6);
+  color: #fff;
   transition: background 0.35s, box-shadow 0.35s, color 0.35s;
   -webkit-tap-highlight-color: transparent;
 }
 
 .pad.light {
   background: var(--pad-light);
-  color: rgba(0, 0, 0, 0.5);
+  color: #000;
+}
+
+/* c, with its octave and in bold, as in the app. */
+.pad.home {
+  font-weight: 700;
 }
 
 .pad.on {
   background: var(--accent);
-  color: rgba(0, 0, 0, 0.6);
+  color: #000;
   box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 70%, transparent);
   transition-duration: 0.04s;
 }
@@ -498,7 +508,7 @@ p {
 }
 
 .doc ul {
-  padding-left: 1.2em;
+  padding-inline-start: 1.2em;
 }
 
 .doc li {
@@ -531,6 +541,10 @@ p {
   padding: 24px 28px;
   border-radius: var(--radius);
   background: var(--surface);
+}
+
+.contact p:last-child {
+  margin: 0;
 }
 
 .contact a {
@@ -608,7 +622,7 @@ p {
   place-items: center;
   width: 34px;
   height: 34px;
-  margin-left: 4px;
+  margin-inline-start: 4px;
   border-radius: 50%;
   border: 1px solid var(--line);
   color: var(--muted);
@@ -638,4 +652,171 @@ p {
 
 .top nav {
   align-items: center;
+}
+
+/* Language menu in the header. */
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.lang-menu {
+  position: relative;
+}
+
+.lang-menu summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding-inline: 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.lang-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.lang-menu summary:hover,
+.lang-menu[open] summary {
+  color: var(--fg);
+}
+
+.lang-menu summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.lang-menu svg {
+  width: 18px;
+  height: 18px;
+}
+
+.lang-menu ul {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 8px);
+  z-index: 20;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  width: max-content;
+  min-width: 200px;
+  max-height: min(70vh, 560px);
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+.top nav .lang-menu a {
+  display: block;
+  padding: 7px 12px;
+  border-radius: 8px;
+  color: var(--fg);
+}
+
+.top nav .lang-menu a:hover {
+  background: var(--line);
+}
+
+.top nav .lang-menu a[aria-current] {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .lang-name {
+    display: none;
+  }
+}
+
+/* Scripts without capitals or italics: no letter spacing (it breaks Arabic's joined letters) and no
+   slanted emphasis, which these scripts don't use; the accent colour carries it. */
+
+:lang(ar) .eyebrow,
+:lang(he) .eyebrow,
+:lang(ja) .eyebrow,
+:lang(ko) .eyebrow,
+:lang(zh) .eyebrow {
+  letter-spacing: 0;
+}
+
+:lang(ar) em,
+:lang(he) em,
+:lang(ja) em,
+:lang(ko) em,
+:lang(zh) em {
+  font-style: normal;
+}
+
+:lang(ja) h1,
+:lang(ja) h2,
+:lang(ko) h1,
+:lang(ko) h2,
+:lang(zh) h1,
+:lang(zh) h2 {
+  letter-spacing: 0;
+  line-height: 1.25;
+  word-break: keep-all;
+}
+
+:lang(ar) h1,
+:lang(ar) h2,
+:lang(he) h1,
+:lang(he) h2 {
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+/* Accessibility, as in the app: increased contrast, reduced motion, and the system's forced colours. */
+
+@media (prefers-contrast: more) {
+  .pad {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+
+  /* Not by colour alone: the sounding pad also gets a ring. */
+  .pad.on {
+    outline: 3px solid #fff;
+    outline-offset: -3px;
+  }
+
+  .lang-menu summary,
+  .theme-toggle {
+    border-color: var(--fg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .pad {
+    border: 1px solid CanvasText;
+  }
+
+  .pad.on {
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .steps li::before {
+    border: 1px solid CanvasText;
+  }
 }
