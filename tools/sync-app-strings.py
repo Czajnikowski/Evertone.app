@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Copies the app's own wording into src/i18n/app.json, so the site names things exactly as the app does.
 
-    python3 tools/sync-app-strings.py ../Evertone/Evertone/Localizable.xcstrings
+    python3 tools/sync-app-strings.py [path to Localizable.xcstrings]
+
+Without a path it reads the app next to this repo: ../watchOS/Evertone/Localizable.xcstrings.
 
 Run it again whenever the app's string catalog changes, then tools/build.py.
 """
@@ -25,7 +27,8 @@ KEYS = {
     "app.handOnShoulder": "Dłoń na bark, przy szyi",
 }
 
-catalog = json.loads(Path(sys.argv[1]).read_text())
+default = Path(__file__).resolve().parent.parent.parent / "watchOS/Evertone/Localizable.xcstrings"
+catalog = json.loads(Path(sys.argv[1] if len(sys.argv) > 1 else default).read_text())
 source = catalog["sourceLanguage"]
 strings = catalog["strings"]
 out = {}

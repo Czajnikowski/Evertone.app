@@ -6,7 +6,7 @@ publikowany przez GitHub Pages z gałęzi `main` (katalog główny). Domena jest
 Strony HTML są generowane. Nie edytuj ich ręcznie, zmieniaj `src/` i przebuduj:
 
 ```
-python3 tools/sync-app-strings.py ../Evertone/Evertone/Localizable.xcstrings   # gdy zmienią się teksty w aplikacji
+python3 tools/sync-app-strings.py   # gdy zmienią się teksty w aplikacji (czyta ../watchOS)
 python3 tools/check-translation.py                                             # po zmianie tłumaczeń
 python3 tools/build.py
 ```
