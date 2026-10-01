@@ -11,6 +11,7 @@
     "app.raiseAndTap": "قرّب الساعة من أذنك واضغط بإصبعيك مرتين",
     "app.spokenNames": "دو,دو دييز,ري,ري دييز,مي,فا,فا دييز,صول,صول دييز,لا,لا دييز,سي",
     "app.strings": "وتريات",
+    "app.tuning": "الضبط",
     "app.voice": "صوت"
   },
   "de": {
@@ -25,6 +26,7 @@
     "app.raiseAndTap": "Ans Ohr halten und zweimal mit den Fingern tippen",
     "app.spokenNames": "c,cis,d,dis,e,f,fis,g,gis,a,b,h",
     "app.strings": "Streicher",
+    "app.tuning": "Kammerton",
     "app.voice": "Stimme"
   },
   "en": {
@@ -39,6 +41,7 @@
     "app.raiseAndTap": "Raise to your ear and double tap your fingers",
     "app.spokenNames": "C,C sharp,D,D sharp,E,F,F sharp,G,G sharp,A,A sharp,B",
     "app.strings": "Strings",
+    "app.tuning": "Tuning",
     "app.voice": "Voice"
   },
   "es": {
@@ -53,6 +56,7 @@
     "app.raiseAndTap": "Acércalo al oído y toca dos veces con los dedos",
     "app.spokenNames": "do,do sostenido,re,re sostenido,mi,fa,fa sostenido,sol,sol sostenido,la,la sostenido,si",
     "app.strings": "Cuerdas",
+    "app.tuning": "Afinación",
     "app.voice": "Voz"
   },
   "fr": {
@@ -67,6 +71,7 @@
     "app.raiseAndTap": "Portez à l’oreille et touchez deux fois avec les doigts",
     "app.spokenNames": "do,do dièse,ré,ré dièse,mi,fa,fa dièse,sol,sol dièse,la,la dièse,si",
     "app.strings": "Cordes",
+    "app.tuning": "Diapason",
     "app.voice": "Voix"
   },
   "he": {
@@ -81,6 +86,7 @@
     "app.raiseAndTap": "יש לקרב לאוזן ולהקיש פעמיים באצבעות",
     "app.spokenNames": "דו,דו דיאז,רה,רה דיאז,מי,פה,פה דיאז,סול,סול דיאז,לה,לה דיאז,סי",
     "app.strings": "כלי קשת",
+    "app.tuning": "כיוון",
     "app.voice": "קול"
   },
   "it": {
@@ -95,6 +101,7 @@
     "app.raiseAndTap": "Avvicina all’orecchio e tocca due volte con le dita",
     "app.spokenNames": "do,do diesis,re,re diesis,mi,fa,fa diesis,sol,sol diesis,la,la diesis,si",
     "app.strings": "Archi",
+    "app.tuning": "Diapason",
     "app.voice": "Voce"
   },
   "ja": {
@@ -109,6 +116,7 @@
     "app.raiseAndTap": "耳に当てて、指でダブルタップ",
     "app.spokenNames": "C,Cシャープ,D,Dシャープ,E,F,Fシャープ,G,Gシャープ,A,Aシャープ,B",
     "app.strings": "ストリングス",
+    "app.tuning": "基準ピッチ",
     "app.voice": "ボイス"
   },
   "ko": {
@@ -123,6 +131,7 @@
     "app.raiseAndTap": "귀에 대고 손가락으로 두 번 탭하세요",
     "app.spokenNames": "C,C 샵,D,D 샵,E,F,F 샵,G,G 샵,A,A 샵,B",
     "app.strings": "현악기",
+    "app.tuning": "기준음",
     "app.voice": "보이스"
   },
   "nl": {
@@ -137,6 +146,7 @@
     "app.raiseAndTap": "Houd bij je oor en tik twee keer met je vingers",
     "app.spokenNames": "c,cis,d,dis,e,f,fis,g,gis,a,bes,b",
     "app.strings": "Strijkers",
+    "app.tuning": "Stemtoon",
     "app.voice": "Stem"
   },
   "pl": {
@@ -151,6 +161,7 @@
     "app.raiseAndTap": "Przyłóż do ucha i stuknij dwa razy palcami",
     "app.spokenNames": "c,cis,d,dis,e,f,fis,g,gis,a,b,h",
     "app.strings": "Smyczki",
+    "app.tuning": "Strój",
     "app.voice": "Głos"
   },
   "pt-BR": {
@@ -165,6 +176,7 @@
     "app.raiseAndTap": "Aproxime do ouvido e toque duas vezes com os dedos",
     "app.spokenNames": "dó,dó sustenido,ré,ré sustenido,mi,fá,fá sustenido,sol,sol sustenido,lá,lá sustenido,si",
     "app.strings": "Cordas",
+    "app.tuning": "Afinação",
     "app.voice": "Voz"
   },
   "ru": {
@@ -179,6 +191,7 @@
     "app.raiseAndTap": "Поднесите к уху и дважды коснитесь пальцами",
     "app.spokenNames": "до,до-диез,ре,ре-диез,ми,фа,фа-диез,соль,соль-диез,ля,ля-диез,си",
     "app.strings": "Струнные",
+    "app.tuning": "Строй",
     "app.voice": "Голос"
   },
   "tr": {
@@ -193,6 +206,7 @@
     "app.raiseAndTap": "Kulağınıza götürün ve parmaklarınızla iki kez dokunun",
     "app.spokenNames": "do,do diyez,re,re diyez,mi,fa,fa diyez,sol,sol diyez,la,la diyez,si",
     "app.strings": "Yaylılar",
+    "app.tuning": "Akort",
     "app.voice": "Ses"
   },
   "uk": {
@@ -207,6 +221,7 @@
     "app.raiseAndTap": "Піднесіть до вуха й двічі торкніться пальцями",
     "app.spokenNames": "до,до-дієз,ре,ре-дієз,мі,фа,фа-дієз,соль,соль-дієз,ля,ля-дієз,сі",
     "app.strings": "Струнні",
+    "app.tuning": "Стрій",
     "app.voice": "Голос"
   },
   "zh-Hans": {
@@ -221,6 +236,7 @@
     "app.raiseAndTap": "贴近耳朵，用手指连点两下",
     "app.spokenNames": "C,升C,D,升D,E,F,升F,G,升G,A,升A,B",
     "app.strings": "弦乐",
+    "app.tuning": "标准音",
     "app.voice": "人声"
   },
   "zh-Hant": {
@@ -235,6 +251,7 @@
     "app.raiseAndTap": "貼近耳朵，用手指點兩下",
     "app.spokenNames": "C,升C,D,升D,E,F,升F,G,升G,A,升A,B",
     "app.strings": "弦樂",
+    "app.tuning": "標準音",
     "app.voice": "人聲"
   }
 }

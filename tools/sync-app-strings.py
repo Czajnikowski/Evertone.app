@@ -25,6 +25,7 @@ KEYS = {
     "app.chooseInstrument": "Wybierz instrument",
     "app.raiseAndTap": "Przyłóż do ucha i stuknij dwa razy palcami",
     "app.handOnShoulder": "Dłoń na bark, przy szyi",
+    "app.tuning": "Strój",
 }
 
 default = Path(__file__).resolve().parent.parent.parent / "watchOS/Evertone/Localizable.xcstrings"
