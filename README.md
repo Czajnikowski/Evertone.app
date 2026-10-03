@@ -1,7 +1,7 @@
 # evertone.app
 
 Strona aplikacji [Evertone](https://evertone.app) na Apple Watch, w 17 językach aplikacji. Statyczny HTML/CSS/JS,
-publikowany przez GitHub Pages z gałęzi `main` (katalog główny). Domena jest w pliku `CNAME`.
+publikowany przez GitHub Pages z gałęzi `gh-pages` (zob. „Publikacja”). Domena jest w pliku `CNAME`.
 
 Strony HTML są generowane. Nie edytuj ich ręcznie, zmieniaj `src/` i przebuduj:
 
@@ -28,3 +28,16 @@ python3 tools/build.py
 - Adres kontaktowy (`EMAIL`) jest w `tools/build.py`.
 
 Podgląd lokalny: `python3 -m http.server`, potem http://localhost:8000.
+
+## Publikacja
+
+`.github/workflows/site.yml` buduje stronę przy każdym pushu i wrzuca ją na gałąź `gh-pages`, z której serwuje
+GitHub Pages:
+
+- gałąź domyślna trafia do katalogu głównego, czyli na https://evertone.app/;
+- każda inna gałąź dostaje podgląd pod https://evertone.app/preview/<gałąź>/ (`/` zamienione na `-`, z `noindex`),
+  podlinkowany w pull requeście jako deployment; usunięcie gałęzi usuwa podgląd.
+
+Teksty aplikacji workflow bierze z `main` w Evertone.watchOS (przy ręcznym uruchomieniu można wybrać gałąź).
+To repozytorium jest prywatne, więc potrzebny jest sekret `WATCHOS_TOKEN`: token fine-grained z odczytem zawartości
+Evertone.watchOS. Bez niego build używa zapisanego `src/i18n/app.json`.
