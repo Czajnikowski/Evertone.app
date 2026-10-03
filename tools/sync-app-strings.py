@@ -11,21 +11,21 @@ import json
 import sys
 from pathlib import Path
 
-# Site key -> key in the app's string catalog (its Polish source text).
+# Site key -> key in the app's string catalog.
 KEYS = {
-    "app.piano": "Fortepian",
-    "app.strings": "Smyczki",
-    "app.brass": "Blacha",
-    "app.voice": "Głos",
+    "app.piano": "instrument.piano",
+    "app.strings": "instrument.strings",
+    "app.brass": "instrument.brass",
+    "app.voice": "instrument.voice",
     "app.noteNames": "note.names",
     "app.spokenNames": "note.spokenNames",
-    "app.atTheEar": "Na ucho",
-    "app.octave": "oktawa %lld",
-    "app.instrumentLabel": "Instrument: %@",
-    "app.chooseInstrument": "Wybierz instrument",
-    "app.raiseAndTap": "Przyłóż do ucha i stuknij dwa razy palcami",
-    "app.handOnShoulder": "Dłoń na bark, przy szyi",
-    "app.tuning": "Strój",
+    "app.atTheEar": "ear.title",
+    "app.octave": "pads.octave",
+    "app.instrumentLabel": "instrument.label",
+    "app.chooseInstrument": "instrument.choose",
+    "app.raiseAndTap": "ear.raiseAndTap",
+    "app.handOnShoulder": "ear.handOnShoulder",
+    "app.tuning": "pitch.title",
 }
 
 default = Path(__file__).resolve().parent.parent.parent / "watchOS/Evertone/Localizable.xcstrings"
@@ -41,10 +41,6 @@ for site_key, app_key in KEYS.items():
         unit = localizations.get(language, {}).get("stringUnit")
         if unit:
             value = unit["value"]
-        elif language == source:
-            # Keys like note.names keep their Polish text in the code's default value, not the catalog.
-            value = {"note.names": "c,cis,d,dis,e,f,fis,g,gis,a,b,h",
-                     "note.spokenNames": "c,cis,d,dis,e,f,fis,g,gis,a,b,h"}.get(app_key, app_key)
         else:
             sys.exit(f"{app_key!r} has no {language} translation in the catalog")
         out.setdefault(language, {})[site_key] = value.replace("%lld", "{n}").replace("%@", "{name}")
