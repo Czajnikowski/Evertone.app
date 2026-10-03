@@ -24,6 +24,7 @@ python3 tools/build.py
 - `assets/theme.js`: tryb jasny lub ciemny idzie za systemem; przycisk w nagłówku przełącza system → jasny → ciemny.
 - `assets/watch.js`: grywalny zegarek na stronie głównej (Web Audio), z nazwami nut i etykietami VoiceOver z aplikacji.
 - Bez zewnętrznych skryptów, czcionek i analityki: strona obiecuje, że niczego nie śledzi.
+- `assets/og-image.png` to obrazek podglądu linku (Wiadomości, Slack itd.), 1200×630 z ikoną aplikacji; rysuje go `python3 tools/og-image.py`.
 - Adres kontaktowy (`EMAIL`) jest w `tools/build.py`.
 
 Podgląd lokalny: `python3 -m http.server`, potem http://localhost:8000.
