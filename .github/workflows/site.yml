@@ -76,8 +76,10 @@ jobs:
           rsync -a --exclude .git --exclude .github --exclude src --exclude tools --exclude README.md app/ site/
           git -C app fetch --depth 1 origin gh-pages && git -C app worktree add ../pages FETCH_HEAD \
             || { git -C app worktree add --detach ../pages && git -C pages checkout --orphan gh-pages && git -C pages rm -rfq .; }
+          # --checksum: rsync otherwise skips a file whose size and timestamp match, and a one-character edit
+          # built in the same second as the gh-pages checkout looks unchanged.
           if [ "$BRANCH" = "$DEFAULT_BRANCH" ]; then
-            rsync -a --delete --exclude .git --exclude /preview/ site/ pages/
+            rsync -a --checksum --delete --exclude .git --exclude /preview/ site/ pages/
             echo "url=https://$(cat site/CNAME)/" >> "$GITHUB_OUTPUT"
           else
             slug=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9._-]/-/g')
@@ -88,7 +90,7 @@ jobs:
             # og:url too, or Messages may file the preview under the production address.
             find site -name '*.html' -exec sed -i "s|property=\"og:url\" content=\"https://$(cat app/CNAME)/|property=\"og:url\" content=\"https://$(cat app/CNAME)/preview/$slug/|" {} +
             mkdir -p pages/preview
-            rsync -a --delete site/ "pages/preview/$slug/"
+            rsync -a --checksum --delete site/ "pages/preview/$slug/"
             echo "url=https://$(cat app/CNAME)/preview/$slug/" >> "$GITHUB_OUTPUT"
           fi
           cd pages
