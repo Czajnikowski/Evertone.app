@@ -122,9 +122,9 @@ def main():
                 "canonical": url(folder, page),
             })
             # Messages drops "Evertone — " from a link preview's title as a site name, leaving only the tagline.
-            # A colon keeps the name in: "Evertone: dźwięk zawsze pod ręką".
+            # A comma keeps the name in: "Evertone, dźwięk zawsze pod ręką".
             title = page_values["title"]
-            page_values["ogTitle"] = re.sub(r"^Evertone\s+[—–-]\s+", "Evertone: ", title) if title.startswith("Evertone") else "Evertone"
+            page_values["ogTitle"] = re.sub(r"^Evertone\s+[—–-]\s+", "Evertone, ", title) if title.startswith("Evertone") else "Evertone"
             page_values["alternates"] = "\n".join(
                 f'  <link rel="alternate" hreflang="{l}" href="{url(f, page)}">' for _, f, l, *_ in LANGUAGES
             ) + f'\n  <link rel="alternate" hreflang="x-default" href="{url("en", page)}">'
