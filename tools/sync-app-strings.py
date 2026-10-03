@@ -11,20 +11,20 @@ import json
 import sys
 from pathlib import Path
 
-# Site key -> key in the app's string catalog (its Polish source text).
+# Site key -> key in the app's string catalog.
 KEYS = {
-    "app.piano": "Fortepian",
-    "app.strings": "Smyczki",
-    "app.brass": "Blacha",
-    "app.voice": "Głos",
+    "app.piano": "instrument.piano",
+    "app.strings": "instrument.strings",
+    "app.brass": "instrument.brass",
+    "app.voice": "instrument.voice",
     "app.noteNames": "note.names",
     "app.spokenNames": "note.spokenNames",
-    "app.atTheEar": "Na ucho",
-    "app.octave": "oktawa %lld",
-    "app.instrumentLabel": "Instrument: %@",
-    "app.chooseInstrument": "Wybierz instrument",
-    "app.raiseAndTap": "Przyłóż do ucha i stuknij dwa razy palcami",
-    "app.handOnShoulder": "Dłoń na bark, przy szyi",
+    "app.atTheEar": "ear.title",
+    "app.octave": "pads.octave",
+    "app.instrumentLabel": "instrument.label",
+    "app.chooseInstrument": "instrument.choose",
+    "app.raiseAndTap": "ear.raiseAndTap",
+    "app.handOnShoulder": "ear.handOnShoulder",
 }
 
 default = Path(__file__).resolve().parent.parent.parent / "watchOS/Evertone/Localizable.xcstrings"
