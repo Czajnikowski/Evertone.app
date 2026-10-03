@@ -106,8 +106,12 @@ def main():
             "nativeName": native,
             "ogLocale": og,
             "email": EMAIL,
-            "instruments": text(",".join(app_strings[k] for k in ["app.piano", "app.strings", "app.brass", "app.voice"])),
-            "octave5": text(app_strings["app.octave"].replace("{n}", "5")),
+            # Everything watch.js says, as JSON: the app's own words and the few the site adds.
+            "watchStrings": text(json.dumps(
+                {k.removeprefix("app."): v for k, v in app_strings.items()}
+                | {k.removeprefix("watch."): fill_app(strings[k]) for k in ["watch.volume", "watch.close", "watch.back"]},
+                ensure_ascii=False, sort_keys=True,
+            )),
         })
 
         out_dir = ROOT / folder if folder else ROOT
@@ -138,7 +142,10 @@ def main():
                 + f">{n}</a></li>"
                 for c, f, l, n, *_ in LANGUAGES
             )
-            page_values["scripts"] = f'  <script src="{page_values["root"]}assets/watch.js"></script>' if page == "index.html" else ""
+            page_values["scripts"] = (
+                f'  <script src="{page_values["root"]}assets/synth.js"></script>\n'
+                f'  <script src="{page_values["root"]}assets/watch.js"></script>'
+            ) if page == "index.html" else ""
 
             document = head + templates[page] + foot
 

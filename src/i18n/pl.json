@@ -24,7 +24,10 @@
   "hero.soon": "Wkrótce",
   "hero.store": "w App Store",
   "hero.requirements": "Apple Watch z watchOS 11 lub nowszym",
-  "watch.caption": "Stuknij pad i posłuchaj. Nazwa instrumentu zmienia brzmienie.",
+  "watch.caption": "Stuknij pad i posłuchaj. Przesuń w bok po inne oktawy, a koronką ustaw głośność. Nazwa instrumentu zmienia brzmienie i strój.",
+  "watch.volume": "Głośność",
+  "watch.close": "Zamknij",
+  "watch.back": "Wstecz",
 
   "why.title": "Ton wtedy, kiedy go <em>potrzebujesz</em>",
   "why.lead": "Telefon leży w torbie, kamerton gdzieś się zapodział, a pianina nie ma w pobliżu. Zegarek masz zawsze na ręce. Evertone zamienia go w źródło czystego dźwięku, gotowe w sekundę.",

@@ -86,21 +86,21 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{&quot;atTheEar&quot;: &quot;贴耳演奏&quot;, &quot;back&quot;: &quot;返回&quot;, &quot;brass&quot;: &quot;铜管&quot;, &quot;centsFrom440&quot;: &quot;相对 440 {1}{2} 音分&quot;, &quot;chooseInstrument&quot;: &quot;选择乐器&quot;, &quot;close&quot;: &quot;关闭&quot;, &quot;earHintOrTapPad&quot;: &quot;或轻点闪烁的按键。&quot;, &quot;earHintRaiseAndTap&quot;: &quot;将手表抬到耳边，用手指连点两下。&quot;, &quot;earLabel&quot;: &quot;贴耳演奏：{name}&quot;, &quot;handOnShoulder&quot;: &quot;手放在肩上，靠近脖子&quot;, &quot;hz&quot;: &quot;{n} Hz&quot;, &quot;instrumentLabel&quot;: &quot;乐器：{name}&quot;, &quot;instrumentTitle&quot;: &quot;乐器&quot;, &quot;noteNames&quot;: &quot;C,C♯,D,D♯,E,F,F♯,G,G♯,A,A♯,B&quot;, &quot;octave&quot;: &quot;第 {n} 八度&quot;, &quot;ok&quot;: &quot;好&quot;, &quot;piano&quot;: &quot;钢琴&quot;, &quot;pitchBaroque&quot;: &quot;巴洛克&quot;, &quot;pitchClassical&quot;: &quot;古典主义&quot;, &quot;pitchOrchestra&quot;: &quot;管弦乐团&quot;, &quot;pitchPlay&quot;: &quot;播放 {name}&quot;, &quot;pitchReset&quot;: &quot;恢复为 440 Hz&quot;, &quot;pitchStandard&quot;: &quot;标准&quot;, &quot;raiseAndTap&quot;: &quot;贴近耳朵，用手指连点两下&quot;, &quot;spokenNames&quot;: &quot;C,升C,D,升D,E,F,升F,G,升G,A,升A,B&quot;, &quot;strings&quot;: &quot;弦乐&quot;, &quot;tuning&quot;: &quot;标准音&quot;, &quot;voice&quot;: &quot;人声&quot;, &quot;volume&quot;: &quot;音量&quot;, &quot;volumeAndPitch&quot;: &quot;{1}%，标准音 {2} Hz&quot;}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="zh-Hans">
               <div class="watch-status">
-                <button type="button" lang="zh-Hans" data-instruments="钢琴,弦乐,铜管,人声" data-label="乐器：{name}" title="选择乐器">钢琴</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="选择乐器">钢琴</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="zh-Hans" aria-label="第 5 八度" data-names="C,C♯,D,D♯,E,F,F♯,G,G♯,A,A♯,B" data-spoken="C,升C,D,升D,E,F,升F,G,升G,A,升A,B"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="zh-Hans" aria-label="音量"></div>
         </div>
-        <figcaption>轻点按键即可试听。轻点乐器名称可切换音色。</figcaption>
+        <figcaption>轻点按键即可试听。左右轻扫切换八度，转动表冠调节音量。轻点乐器名称可切换音色和基准音高。</figcaption>
       </figure>
     </section>
 
@@ -185,6 +185,7 @@
       <a href="privacy.html">隐私</a>
     </nav>
   </footer>
+  <script src="../assets/synth.js"></script>
   <script src="../assets/watch.js"></script>
 </body>
 </html>

@@ -22,7 +22,10 @@
   "hero.soon": "Çok yakında",
   "hero.store": "App Store’da",
   "hero.requirements": "watchOS 11 veya sonraki bir sürümü yüklü Apple Watch",
-  "watch.caption": "Dinlemek için bir tuşa dokunun. Sesi değiştirmek için enstrüman adına dokunun.",
+  "watch.caption": "Dinlemek için bir tuşa dokunun. Diğer oktavlar için yana kaydırın, ses düzeyi için Digital Crown’u çevirin. Enstrüman adı sesi ve akordu değiştirir.",
+  "watch.volume": "Ses düzeyi",
+  "watch.close": "Kapat",
+  "watch.back": "Geri",
 
   "why.title": "Nota, <em>ihtiyacınız olduğu anda</em>",
   "why.lead": "Telefonunuz çantada, diyapazon kaybolmuş, yakında piyano yok. Ama saatiniz her zaman bileğinizde. Evertone onu bir saniyede hazır olan temiz bir ses kaynağına dönüştürür.",

@@ -22,7 +22,10 @@
   "hero.soon": "출시 예정",
   "hero.store": "App Store",
   "hero.requirements": "watchOS 11 이상이 설치된 Apple Watch",
-  "watch.caption": "패드를 탭해 들어 보세요. 악기 이름을 탭하면 소리가 바뀝니다.",
+  "watch.caption": "패드를 탭해 들어 보세요. 옆으로 쓸어 다른 옥타브로, 크라운을 돌려 음량을 바꿉니다. 악기 이름에서 소리와 조율을 바꿀 수 있습니다.",
+  "watch.volume": "음량",
+  "watch.close": "닫기",
+  "watch.back": "뒤로",
 
   "why.title": "음이 필요한 <em>바로 그 순간</em>",
   "why.lead": "휴대폰은 가방 속에 있고, 소리굽쇠는 어디 갔는지 모르겠고, 근처에 피아노도 없습니다. 하지만 시계는 언제나 손목에 있습니다. Evertone은 시계를 1초 만에 준비되는 깨끗한 음원으로 바꿔 줍니다.",

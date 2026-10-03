@@ -8,6 +8,7 @@ Without a path it reads the app next to this repo: ../watchOS/Evertone/Localizab
 Run it again whenever the app's string catalog changes, then tools/build.py.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -26,6 +27,20 @@ KEYS = {
     "app.raiseAndTap": "ear.raiseAndTap",
     "app.handOnShoulder": "ear.handOnShoulder",
     "app.tuning": "pitch.title",
+    "app.instrumentTitle": "instrument.title",
+    "app.hz": "pitch.hz",
+    "app.pitchBaroque": "pitch.baroque",
+    "app.pitchClassical": "pitch.classical",
+    "app.pitchStandard": "pitch.standard",
+    "app.pitchOrchestra": "pitch.orchestra",
+    "app.centsFrom440": "pitch.centsFrom440",
+    "app.pitchPlay": "pitch.play",
+    "app.pitchReset": "pitch.reset",
+    "app.volumeAndPitch": "pads.volumeAndPitch",
+    "app.earLabel": "ear.label",
+    "app.earHintRaiseAndTap": "earHint.raiseAndTap",
+    "app.earHintOrTapPad": "earHint.orTapPad",
+    "app.ok": "ok",
 }
 
 default = Path(__file__).resolve().parent.parent.parent / "watchOS/Evertone/Localizable.xcstrings"
@@ -43,7 +58,9 @@ for site_key, app_key in KEYS.items():
             value = unit["value"]
         else:
             sys.exit(f"{app_key!r} has no {language} translation in the catalog")
-        out.setdefault(language, {})[site_key] = value.replace("%lld", "{n}").replace("%@", "{name}")
+        # Numbered arguments become {1}, {2}, … in their own order, which a translation may swap.
+        value = re.sub(r"%(\d)\$(?:lld|@)", r"{\1}", value)
+        out.setdefault(language, {})[site_key] = value.replace("%lld", "{n}").replace("%@", "{name}").replace("%%", "%")
 
 path = Path(__file__).resolve().parent.parent / "src/i18n/app.json"
 path.write_text(json.dumps(out, ensure_ascii=False, indent=2, sort_keys=True) + "\n")

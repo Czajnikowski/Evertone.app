@@ -22,7 +22,12 @@ python3 tools/build.py
 - `assets/base.css` to układ, a `assets/style.css` styl i kolory w wersji jasnej i ciemnej.
   Obie uwzględniają zwiększony kontrast, ograniczenie ruchu i wymuszone kolory systemu.
 - `assets/theme.js`: tryb jasny lub ciemny idzie za systemem; przycisk w nagłówku przełącza system → jasny → ciemny.
-- `assets/watch.js`: grywalny zegarek na stronie głównej (Web Audio), z nazwami nut i etykietami VoiceOver z aplikacji.
+- `assets/watch.js`: grywalny zegarek na stronie głównej, odwzorowujący ekran aplikacji: oktawy 3–8 przewijane w bok,
+  pociągnięcie w górę wraca do ostatniej nuty, przytrzymanie gra „na ucho”, koronka ustawia głośność, a lista
+  instrumentów i strój (415–466 Hz) otwierają się pod nazwą instrumentu. Nazwy nut i etykiety VoiceOver pochodzą z aplikacji.
+- `assets/synth.js`: syntezator aplikacji (`watchOS/SynthKit`) przepisany na AudioWorklet, więc strona brzmi jak aplikacja.
+  Zmiany w SynthKit trzeba przenieść tu ręcznie. AudioWorklet wymaga HTTPS albo localhost.
+- Dłoń przy zegarku to emoji 🤏 z [Twemoji](https://github.com/jdecked/twemoji) (CC-BY 4.0), a ucho to „hearing” z Material Symbols (Apache 2.0).
 - Bez zewnętrznych skryptów, czcionek i analityki: strona obiecuje, że niczego nie śledzi.
 - Adres kontaktowy (`EMAIL`) jest w `tools/build.py`.
 

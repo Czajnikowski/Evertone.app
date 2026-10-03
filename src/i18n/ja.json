@@ -22,7 +22,10 @@
   "hero.soon": "まもなく",
   "hero.store": "App Storeに登場",
   "hero.requirements": "watchOS 11以降を搭載したApple Watch",
-  "watch.caption": "パッドをタップして聴いてみてください。楽器名をタップすると音色が変わります。",
+  "watch.caption": "パッドをタップして聴いてみてください。横にスワイプすると別のオクターブへ、クラウンを回すと音量が変わります。楽器名から音色と基準ピッチを変えられます。",
+  "watch.volume": "音量",
+  "watch.close": "閉じる",
+  "watch.back": "戻る",
 
   "why.title": "欲しい音を、<em>欲しいときに</em>",
   "why.lead": "スマートフォンはバッグの中、音叉は行方不明、近くにピアノもない。それでも、時計はいつも手首にあります。Evertoneはそれを、1秒で使えるクリアな音源に変えます。",

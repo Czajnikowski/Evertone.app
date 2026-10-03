@@ -22,7 +22,10 @@
   "hero.soon": "Binnenkort",
   "hero.store": "in de App Store",
   "hero.requirements": "Apple Watch met watchOS 11 of nieuwer",
-  "watch.caption": "Tik op een pad om te luisteren. Tik op de naam van het instrument voor een andere klank.",
+  "watch.caption": "Tik op een pad om te luisteren. Veeg opzij voor andere octaven en draai aan de kroon voor het volume. De naam van het instrument verandert de klank en de stemming.",
+  "watch.volume": "Volume",
+  "watch.close": "Sluit",
+  "watch.back": "Terug",
 
   "why.title": "De toon, precies <em>wanneer je hem nodig hebt</em>",
   "why.lead": "Je telefoon zit in je tas, de stemvork is zoek en er staat geen piano in de buurt. Je watch zit altijd om je pols. Evertone maakt er een zuivere toon van, in een seconde klaar.",

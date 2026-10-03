@@ -86,21 +86,21 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{&quot;atTheEar&quot;: &quot;귀에 대고&quot;, &quot;back&quot;: &quot;뒤로&quot;, &quot;brass&quot;: &quot;금관악기&quot;, &quot;centsFrom440&quot;: &quot;440 대비 {1}{2}센트&quot;, &quot;chooseInstrument&quot;: &quot;악기 선택&quot;, &quot;close&quot;: &quot;닫기&quot;, &quot;earHintOrTapPad&quot;: &quot;또는 깜박이는 패드를 탭하세요.&quot;, &quot;earHintRaiseAndTap&quot;: &quot;시계를 귀에 대고 손가락으로 이중 탭하세요.&quot;, &quot;earLabel&quot;: &quot;귀에 대고: {name}&quot;, &quot;handOnShoulder&quot;: &quot;손을 어깨 위, 목 가까이에&quot;, &quot;hz&quot;: &quot;{n} Hz&quot;, &quot;instrumentLabel&quot;: &quot;악기: {name}&quot;, &quot;instrumentTitle&quot;: &quot;악기&quot;, &quot;noteNames&quot;: &quot;C,C♯,D,D♯,E,F,F♯,G,G♯,A,A♯,B&quot;, &quot;octave&quot;: &quot;옥타브 {n}&quot;, &quot;ok&quot;: &quot;확인&quot;, &quot;piano&quot;: &quot;피아노&quot;, &quot;pitchBaroque&quot;: &quot;바로크&quot;, &quot;pitchClassical&quot;: &quot;고전주의&quot;, &quot;pitchOrchestra&quot;: &quot;오케스트라&quot;, &quot;pitchPlay&quot;: &quot;{name} 재생&quot;, &quot;pitchReset&quot;: &quot;440Hz로 재설정&quot;, &quot;pitchStandard&quot;: &quot;표준&quot;, &quot;raiseAndTap&quot;: &quot;귀에 대고 손가락으로 두 번 탭하세요&quot;, &quot;spokenNames&quot;: &quot;C,C 샵,D,D 샵,E,F,F 샵,G,G 샵,A,A 샵,B&quot;, &quot;strings&quot;: &quot;현악기&quot;, &quot;tuning&quot;: &quot;기준음&quot;, &quot;voice&quot;: &quot;보이스&quot;, &quot;volume&quot;: &quot;음량&quot;, &quot;volumeAndPitch&quot;: &quot;{1}%, 기준음 {2} Hz&quot;}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="ko">
               <div class="watch-status">
-                <button type="button" lang="ko" data-instruments="피아노,현악기,금관악기,보이스" data-label="악기: {name}" title="악기 선택">피아노</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="악기 선택">피아노</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="ko" aria-label="옥타브 5" data-names="C,C♯,D,D♯,E,F,F♯,G,G♯,A,A♯,B" data-spoken="C,C 샵,D,D 샵,E,F,F 샵,G,G 샵,A,A 샵,B"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="ko" aria-label="음량"></div>
         </div>
-        <figcaption>패드를 탭해 들어 보세요. 악기 이름을 탭하면 소리가 바뀝니다.</figcaption>
+        <figcaption>패드를 탭해 들어 보세요. 옆으로 쓸어 다른 옥타브로, 크라운을 돌려 음량을 바꿉니다. 악기 이름에서 소리와 조율을 바꿀 수 있습니다.</figcaption>
       </figure>
     </section>
 
@@ -185,6 +185,7 @@
       <a href="privacy.html">개인정보 보호</a>
     </nav>
   </footer>
+  <script src="../assets/synth.js"></script>
   <script src="../assets/watch.js"></script>
 </body>
 </html>

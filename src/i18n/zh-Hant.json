@@ -22,7 +22,10 @@
   "hero.soon": "即將登上",
   "hero.store": "App Store",
   "hero.requirements": "需搭載 watchOS 11 或以上版本的 Apple Watch",
-  "watch.caption": "點一下按鍵來試聽。點一下樂器名稱即可切換音色。",
+  "watch.caption": "點一下按鍵來試聽。左右滑動切換八度，轉動錶冠調整音量。點一下樂器名稱即可切換音色和基準音高。",
+  "watch.volume": "音量",
+  "watch.close": "關閉",
+  "watch.back": "返回",
 
   "why.title": "需要的音，<em>此刻就有</em>",
   "why.lead": "手機在包包裡，音叉不知去向，附近也沒有鋼琴。但手錶一直戴在你的手腕上。Evertone 把它變成純淨的音源，一秒就能使用。",

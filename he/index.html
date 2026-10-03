@@ -86,21 +86,21 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{&quot;atTheEar&quot;: &quot;ליד האוזן&quot;, &quot;back&quot;: &quot;חזרה&quot;, &quot;brass&quot;: &quot;כלי נשיפה ממתכת&quot;, &quot;centsFrom440&quot;: &quot;{1}{2} סנט מ־440&quot;, &quot;chooseInstrument&quot;: &quot;בחירת כלי נגינה&quot;, &quot;close&quot;: &quot;סגירה&quot;, &quot;earHintOrTapPad&quot;: &quot;או להקיש על הקליד הפועם.&quot;, &quot;earHintRaiseAndTap&quot;: &quot;יש לקרב את השעון לאוזן ולהקיש פעמיים באצבעות.&quot;, &quot;earLabel&quot;: &quot;ליד האוזן: {name}&quot;, &quot;handOnShoulder&quot;: &quot;היד על הכתף, ליד הצוואר&quot;, &quot;hz&quot;: &quot;{n} Hz&quot;, &quot;instrumentLabel&quot;: &quot;כלי נגינה: {name}&quot;, &quot;instrumentTitle&quot;: &quot;כלי נגינה&quot;, &quot;noteNames&quot;: &quot;דו,דו♯,רה,רה♯,מי,פה,פה♯,סול,סול♯,לה,לה♯,סי&quot;, &quot;octave&quot;: &quot;אוקטבה {n}&quot;, &quot;ok&quot;: &quot;אישור&quot;, &quot;piano&quot;: &quot;פסנתר&quot;, &quot;pitchBaroque&quot;: &quot;בארוק&quot;, &quot;pitchClassical&quot;: &quot;קלאסי&quot;, &quot;pitchOrchestra&quot;: &quot;תזמורת&quot;, &quot;pitchPlay&quot;: &quot;נגינת {name}&quot;, &quot;pitchReset&quot;: &quot;חזרה ל־440 Hz&quot;, &quot;pitchStandard&quot;: &quot;תקני&quot;, &quot;raiseAndTap&quot;: &quot;יש לקרב לאוזן ולהקיש פעמיים באצבעות&quot;, &quot;spokenNames&quot;: &quot;דו,דו דיאז,רה,רה דיאז,מי,פה,פה דיאז,סול,סול דיאז,לה,לה דיאז,סי&quot;, &quot;strings&quot;: &quot;כלי קשת&quot;, &quot;tuning&quot;: &quot;כיוון&quot;, &quot;voice&quot;: &quot;קול&quot;, &quot;volume&quot;: &quot;עוצמת קול&quot;, &quot;volumeAndPitch&quot;: &quot;{1}%, כיוון {2} Hz&quot;}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="he">
               <div class="watch-status">
-                <button type="button" lang="he" data-instruments="פסנתר,כלי קשת,כלי נשיפה ממתכת,קול" data-label="כלי נגינה: {name}" title="בחירת כלי נגינה">פסנתר</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="בחירת כלי נגינה">פסנתר</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="he" aria-label="אוקטבה 5" data-names="דו,דו♯,רה,רה♯,מי,פה,פה♯,סול,סול♯,לה,לה♯,סי" data-spoken="דו,דו דיאז,רה,רה דיאז,מי,פה,פה דיאז,סול,סול דיאז,לה,לה דיאז,סי"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="he" aria-label="עוצמת קול"></div>
         </div>
-        <figcaption>הקשה על קליד משמיעה אותו. הקשה על שם הכלי מחליפה את הצליל.</figcaption>
+        <figcaption>הקשה על קליד משמיעה אותו. החלקה הצידה עוברת לאוקטבות אחרות, וסיבוב הכתר משנה את עוצמת הקול. שם הכלי מחליף את הצליל ואת הכיוון.</figcaption>
       </figure>
     </section>
 
@@ -185,6 +185,7 @@
       <a href="privacy.html">פרטיות</a>
     </nav>
   </footer>
+  <script src="../assets/synth.js"></script>
   <script src="../assets/watch.js"></script>
 </body>
 </html>

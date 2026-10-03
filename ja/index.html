@@ -86,21 +86,21 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{&quot;atTheEar&quot;: &quot;耳元で&quot;, &quot;back&quot;: &quot;戻る&quot;, &quot;brass&quot;: &quot;ブラス&quot;, &quot;centsFrom440&quot;: &quot;440から{1}{2} セント&quot;, &quot;chooseInstrument&quot;: &quot;楽器を選択&quot;, &quot;close&quot;: &quot;閉じる&quot;, &quot;earHintOrTapPad&quot;: &quot;または、明滅しているパッドをタップします。&quot;, &quot;earHintRaiseAndTap&quot;: &quot;時計を耳に当てて、指でダブルタップします。&quot;, &quot;earLabel&quot;: &quot;耳元で: {name}&quot;, &quot;handOnShoulder&quot;: &quot;手を肩に、首のそばへ&quot;, &quot;hz&quot;: &quot;{n} Hz&quot;, &quot;instrumentLabel&quot;: &quot;楽器: {name}&quot;, &quot;instrumentTitle&quot;: &quot;楽器&quot;, &quot;noteNames&quot;: &quot;C,C♯,D,D♯,E,F,F♯,G,G♯,A,A♯,B&quot;, &quot;octave&quot;: &quot;オクターブ {n}&quot;, &quot;ok&quot;: &quot;OK&quot;, &quot;piano&quot;: &quot;ピアノ&quot;, &quot;pitchBaroque&quot;: &quot;バロック&quot;, &quot;pitchClassical&quot;: &quot;古典派&quot;, &quot;pitchOrchestra&quot;: &quot;オーケストラ&quot;, &quot;pitchPlay&quot;: &quot;{name}を鳴らす&quot;, &quot;pitchReset&quot;: &quot;440 Hzに戻す&quot;, &quot;pitchStandard&quot;: &quot;標準&quot;, &quot;raiseAndTap&quot;: &quot;耳に当てて、指でダブルタップ&quot;, &quot;spokenNames&quot;: &quot;C,Cシャープ,D,Dシャープ,E,F,Fシャープ,G,Gシャープ,A,Aシャープ,B&quot;, &quot;strings&quot;: &quot;ストリングス&quot;, &quot;tuning&quot;: &quot;基準ピッチ&quot;, &quot;voice&quot;: &quot;ボイス&quot;, &quot;volume&quot;: &quot;音量&quot;, &quot;volumeAndPitch&quot;: &quot;{1}%、基準ピッチ {2} Hz&quot;}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="ja">
               <div class="watch-status">
-                <button type="button" lang="ja" data-instruments="ピアノ,ストリングス,ブラス,ボイス" data-label="楽器: {name}" title="楽器を選択">ピアノ</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="楽器を選択">ピアノ</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="ja" aria-label="オクターブ 5" data-names="C,C♯,D,D♯,E,F,F♯,G,G♯,A,A♯,B" data-spoken="C,Cシャープ,D,Dシャープ,E,F,Fシャープ,G,Gシャープ,A,Aシャープ,B"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="ja" aria-label="音量"></div>
         </div>
-        <figcaption>パッドをタップして聴いてみてください。楽器名をタップすると音色が変わります。</figcaption>
+        <figcaption>パッドをタップして聴いてみてください。横にスワイプすると別のオクターブへ、クラウンを回すと音量が変わります。楽器名から音色と基準ピッチを変えられます。</figcaption>
       </figure>
     </section>
 
@@ -185,6 +185,7 @@
       <a href="privacy.html">プライバシー</a>
     </nav>
   </footer>
+  <script src="../assets/synth.js"></script>
   <script src="../assets/watch.js"></script>
 </body>
 </html>

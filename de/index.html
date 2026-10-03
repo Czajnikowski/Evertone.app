@@ -86,21 +86,21 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{&quot;atTheEar&quot;: &quot;Am Ohr&quot;, &quot;back&quot;: &quot;Zurück&quot;, &quot;brass&quot;: &quot;Blechbläser&quot;, &quot;centsFrom440&quot;: &quot;{1}{2} ct ggü. 440&quot;, &quot;chooseInstrument&quot;: &quot;Instrument auswählen&quot;, &quot;close&quot;: &quot;Schließen&quot;, &quot;earHintOrTapPad&quot;: &quot;Oder tippe auf das pulsierende Pad.&quot;, &quot;earHintRaiseAndTap&quot;: &quot;Führe die Uhr ans Ohr und tippe zweimal mit den Fingern.&quot;, &quot;earLabel&quot;: &quot;Am Ohr: {name}&quot;, &quot;handOnShoulder&quot;: &quot;Hand auf die Schulter, nah am Hals&quot;, &quot;hz&quot;: &quot;{n} Hz&quot;, &quot;instrumentLabel&quot;: &quot;Instrument: {name}&quot;, &quot;instrumentTitle&quot;: &quot;Instrument&quot;, &quot;noteNames&quot;: &quot;c,cis,d,dis,e,f,fis,g,gis,a,b,h&quot;, &quot;octave&quot;: &quot;Oktave {n}&quot;, &quot;ok&quot;: &quot;OK&quot;, &quot;piano&quot;: &quot;Klavier&quot;, &quot;pitchBaroque&quot;: &quot;Barock&quot;, &quot;pitchClassical&quot;: &quot;Klassik&quot;, &quot;pitchOrchestra&quot;: &quot;Orchester&quot;, &quot;pitchPlay&quot;: &quot;{name} spielen&quot;, &quot;pitchReset&quot;: &quot;Auf 440 Hz zurücksetzen&quot;, &quot;pitchStandard&quot;: &quot;Standard&quot;, &quot;raiseAndTap&quot;: &quot;Ans Ohr halten und zweimal mit den Fingern tippen&quot;, &quot;spokenNames&quot;: &quot;c,cis,d,dis,e,f,fis,g,gis,a,b,h&quot;, &quot;strings&quot;: &quot;Streicher&quot;, &quot;tuning&quot;: &quot;Kammerton&quot;, &quot;voice&quot;: &quot;Stimme&quot;, &quot;volume&quot;: &quot;Lautstärke&quot;, &quot;volumeAndPitch&quot;: &quot;{1} %, Kammerton {2} Hz&quot;}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="de">
               <div class="watch-status">
-                <button type="button" lang="de" data-instruments="Klavier,Streicher,Blechbläser,Stimme" data-label="Instrument: {name}" title="Instrument auswählen">Klavier</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="Instrument auswählen">Klavier</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="de" aria-label="Oktave 5" data-names="c,cis,d,dis,e,f,fis,g,gis,a,b,h" data-spoken="c,cis,d,dis,e,f,fis,g,gis,a,b,h"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="de" aria-label="Lautstärke"></div>
         </div>
-        <figcaption>Tippe auf ein Pad, um es zu hören. Tippe auf den Namen des Instruments, um den Klang zu wechseln.</figcaption>
+        <figcaption>Tippe auf ein Pad, um es zu hören. Wische zur Seite für andere Oktaven und drehe die Krone für die Lautstärke. Der Name des Instruments wechselt Klang und Stimmung.</figcaption>
       </figure>
     </section>
 
@@ -185,6 +185,7 @@
       <a href="privacy.html">Datenschutz</a>
     </nav>
   </footer>
+  <script src="../assets/synth.js"></script>
   <script src="../assets/watch.js"></script>
 </body>
 </html>

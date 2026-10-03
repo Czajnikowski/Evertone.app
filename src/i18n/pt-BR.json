@@ -22,7 +22,10 @@
   "hero.soon": "Em breve",
   "hero.store": "na App Store",
   "hero.requirements": "Apple Watch com watchOS 11 ou posterior",
-  "watch.caption": "Toque em um pad para ouvir. Toque no nome do instrumento para mudar o som.",
+  "watch.caption": "Toque em um pad para ouvir. Deslize para o lado para outras oitavas e gire a coroa para o volume. O nome do instrumento muda o som e a afinação.",
+  "watch.volume": "Volume",
+  "watch.close": "Fechar",
+  "watch.back": "Voltar",
 
   "why.title": "A nota na hora <em>em que você precisa</em>",
   "why.lead": "O celular está na bolsa, o diapasão sumiu e não há piano por perto. Já o relógio está sempre no seu pulso. O Evertone o transforma num som limpo, pronto em um segundo.",

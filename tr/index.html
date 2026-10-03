@@ -86,21 +86,21 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{&quot;atTheEar&quot;: &quot;Kulakta&quot;, &quot;back&quot;: &quot;Geri&quot;, &quot;brass&quot;: &quot;Bakır nefesliler&quot;, &quot;centsFrom440&quot;: &quot;440'a göre {1}{2} ct&quot;, &quot;chooseInstrument&quot;: &quot;Enstrüman seç&quot;, &quot;close&quot;: &quot;Kapat&quot;, &quot;earHintOrTapPad&quot;: &quot;Ya da yanıp sönen tuşa dokunun.&quot;, &quot;earHintRaiseAndTap&quot;: &quot;Saati kulağınıza götürün ve parmaklarınızla iki kez dokunun.&quot;, &quot;earLabel&quot;: &quot;Kulakta: {name}&quot;, &quot;handOnShoulder&quot;: &quot;Eliniz omzunuzda, boynunuzun yanında&quot;, &quot;hz&quot;: &quot;{n} Hz&quot;, &quot;instrumentLabel&quot;: &quot;Enstrüman: {name}&quot;, &quot;instrumentTitle&quot;: &quot;Enstrüman&quot;, &quot;noteNames&quot;: &quot;do,do♯,re,re♯,mi,fa,fa♯,sol,sol♯,la,la♯,si&quot;, &quot;octave&quot;: &quot;oktav {n}&quot;, &quot;ok&quot;: &quot;Tamam&quot;, &quot;piano&quot;: &quot;Piyano&quot;, &quot;pitchBaroque&quot;: &quot;Barok&quot;, &quot;pitchClassical&quot;: &quot;Klasik dönem&quot;, &quot;pitchOrchestra&quot;: &quot;Orkestra&quot;, &quot;pitchPlay&quot;: &quot;{name} çal&quot;, &quot;pitchReset&quot;: &quot;440 Hz'e sıfırla&quot;, &quot;pitchStandard&quot;: &quot;Standart&quot;, &quot;raiseAndTap&quot;: &quot;Kulağınıza götürün ve parmaklarınızla iki kez dokunun&quot;, &quot;spokenNames&quot;: &quot;do,do diyez,re,re diyez,mi,fa,fa diyez,sol,sol diyez,la,la diyez,si&quot;, &quot;strings&quot;: &quot;Yaylılar&quot;, &quot;tuning&quot;: &quot;Akort&quot;, &quot;voice&quot;: &quot;Ses&quot;, &quot;volume&quot;: &quot;Ses düzeyi&quot;, &quot;volumeAndPitch&quot;: &quot;%{1}, akort {2} Hz&quot;}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="tr">
               <div class="watch-status">
-                <button type="button" lang="tr" data-instruments="Piyano,Yaylılar,Bakır nefesliler,Ses" data-label="Enstrüman: {name}" title="Enstrüman seç">Piyano</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="Enstrüman seç">Piyano</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="tr" aria-label="oktav 5" data-names="do,do♯,re,re♯,mi,fa,fa♯,sol,sol♯,la,la♯,si" data-spoken="do,do diyez,re,re diyez,mi,fa,fa diyez,sol,sol diyez,la,la diyez,si"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="tr" aria-label="Ses düzeyi"></div>
         </div>
-        <figcaption>Dinlemek için bir tuşa dokunun. Sesi değiştirmek için enstrüman adına dokunun.</figcaption>
+        <figcaption>Dinlemek için bir tuşa dokunun. Diğer oktavlar için yana kaydırın, ses düzeyi için Digital Crown’u çevirin. Enstrüman adı sesi ve akordu değiştirir.</figcaption>
       </figure>
     </section>
 
@@ -185,6 +185,7 @@
       <a href="privacy.html">Gizlilik</a>
     </nav>
   </footer>
+  <script src="../assets/synth.js"></script>
   <script src="../assets/watch.js"></script>
 </body>
 </html>

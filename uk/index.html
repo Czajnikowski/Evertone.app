@@ -86,21 +86,21 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{&quot;atTheEar&quot;: &quot;Біля вуха&quot;, &quot;back&quot;: &quot;Назад&quot;, &quot;brass&quot;: &quot;Мідні&quot;, &quot;centsFrom440&quot;: &quot;{1}{2} ct від 440&quot;, &quot;chooseInstrument&quot;: &quot;Вибрати інструмент&quot;, &quot;close&quot;: &quot;Закрити&quot;, &quot;earHintOrTapPad&quot;: &quot;Або торкніться пульсуючої клавіші.&quot;, &quot;earHintRaiseAndTap&quot;: &quot;Піднесіть годинник до вуха й двічі торкніться пальцями.&quot;, &quot;earLabel&quot;: &quot;Біля вуха: {name}&quot;, &quot;handOnShoulder&quot;: &quot;Долоня на плече, біля шиї&quot;, &quot;hz&quot;: &quot;{n} Hz&quot;, &quot;instrumentLabel&quot;: &quot;Інструмент: {name}&quot;, &quot;instrumentTitle&quot;: &quot;Інструмент&quot;, &quot;noteNames&quot;: &quot;до,до♯,ре,ре♯,мі,фа,фа♯,соль,соль♯,ля,ля♯,сі&quot;, &quot;octave&quot;: &quot;октава {n}&quot;, &quot;ok&quot;: &quot;OK&quot;, &quot;piano&quot;: &quot;Фортепіано&quot;, &quot;pitchBaroque&quot;: &quot;Бароко&quot;, &quot;pitchClassical&quot;: &quot;Класицизм&quot;, &quot;pitchOrchestra&quot;: &quot;Оркестр&quot;, &quot;pitchPlay&quot;: &quot;Зіграти {name}&quot;, &quot;pitchReset&quot;: &quot;Повернути 440 Hz&quot;, &quot;pitchStandard&quot;: &quot;Стандарт&quot;, &quot;raiseAndTap&quot;: &quot;Піднесіть до вуха й двічі торкніться пальцями&quot;, &quot;spokenNames&quot;: &quot;до,до-дієз,ре,ре-дієз,мі,фа,фа-дієз,соль,соль-дієз,ля,ля-дієз,сі&quot;, &quot;strings&quot;: &quot;Струнні&quot;, &quot;tuning&quot;: &quot;Стрій&quot;, &quot;voice&quot;: &quot;Голос&quot;, &quot;volume&quot;: &quot;Гучність&quot;, &quot;volumeAndPitch&quot;: &quot;{1}%, стрій {2} Hz&quot;}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="uk">
               <div class="watch-status">
-                <button type="button" lang="uk" data-instruments="Фортепіано,Струнні,Мідні,Голос" data-label="Інструмент: {name}" title="Вибрати інструмент">Фортепіано</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="Вибрати інструмент">Фортепіано</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="uk" aria-label="октава 5" data-names="до,до♯,ре,ре♯,мі,фа,фа♯,соль,соль♯,ля,ля♯,сі" data-spoken="до,до-дієз,ре,ре-дієз,мі,фа,фа-дієз,соль,соль-дієз,ля,ля-дієз,сі"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="uk" aria-label="Гучність"></div>
         </div>
-        <figcaption>Торкніться клавіші, щоб послухати. Торкніться назви інструмента, щоб змінити звучання.</figcaption>
+        <figcaption>Торкніться клавіші, щоб послухати. Гортайте вбік до інших октав, а коронкою змінюйте гучність. Назва інструмента змінює звучання і стрій.</figcaption>
       </figure>
     </section>
 
@@ -185,6 +185,7 @@
       <a href="privacy.html">Конфіденційність</a>
     </nav>
   </footer>
+  <script src="../assets/synth.js"></script>
   <script src="../assets/watch.js"></script>
 </body>
 </html>

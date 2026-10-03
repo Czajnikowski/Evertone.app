@@ -86,21 +86,21 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{&quot;atTheEar&quot;: &quot;عند الأذن&quot;, &quot;back&quot;: &quot;رجوع&quot;, &quot;brass&quot;: &quot;نحاسيات&quot;, &quot;centsFrom440&quot;: &quot;{1}{2} سنت عن 440&quot;, &quot;chooseInstrument&quot;: &quot;اختيار آلة&quot;, &quot;close&quot;: &quot;إغلاق&quot;, &quot;earHintOrTapPad&quot;: &quot;أو اضغط على المفتاح النابض.&quot;, &quot;earHintRaiseAndTap&quot;: &quot;قرّب الساعة من أذنك واضغط بإصبعيك مرتين.&quot;, &quot;earLabel&quot;: &quot;عند الأذن: {name}&quot;, &quot;handOnShoulder&quot;: &quot;اليد على الكتف، بجانب الرقبة&quot;, &quot;hz&quot;: &quot;{n} Hz&quot;, &quot;instrumentLabel&quot;: &quot;الآلة: {name}&quot;, &quot;instrumentTitle&quot;: &quot;الآلة&quot;, &quot;noteNames&quot;: &quot;دو,دو♯,ري,ري♯,مي,فا,فا♯,صول,صول♯,لا,لا♯,سي&quot;, &quot;octave&quot;: &quot;الأوكتاف {n}&quot;, &quot;ok&quot;: &quot;حسنًا&quot;, &quot;piano&quot;: &quot;بيانو&quot;, &quot;pitchBaroque&quot;: &quot;باروك&quot;, &quot;pitchClassical&quot;: &quot;الكلاسيكية&quot;, &quot;pitchOrchestra&quot;: &quot;أوركسترا&quot;, &quot;pitchPlay&quot;: &quot;تشغيل {name}&quot;, &quot;pitchReset&quot;: &quot;إعادة إلى 440 Hz&quot;, &quot;pitchStandard&quot;: &quot;قياسي&quot;, &quot;raiseAndTap&quot;: &quot;قرّب الساعة من أذنك واضغط بإصبعيك مرتين&quot;, &quot;spokenNames&quot;: &quot;دو,دو دييز,ري,ري دييز,مي,فا,فا دييز,صول,صول دييز,لا,لا دييز,سي&quot;, &quot;strings&quot;: &quot;وتريات&quot;, &quot;tuning&quot;: &quot;الضبط&quot;, &quot;voice&quot;: &quot;صوت&quot;, &quot;volume&quot;: &quot;مستوى الصوت&quot;, &quot;volumeAndPitch&quot;: &quot;{1}%، الضبط {2} Hz&quot;}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="ar">
               <div class="watch-status">
-                <button type="button" lang="ar" data-instruments="بيانو,وتريات,نحاسيات,صوت" data-label="الآلة: {name}" title="اختيار آلة">بيانو</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="اختيار آلة">بيانو</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="ar" aria-label="الأوكتاف 5" data-names="دو,دو♯,ري,ري♯,مي,فا,فا♯,صول,صول♯,لا,لا♯,سي" data-spoken="دو,دو دييز,ري,ري دييز,مي,فا,فا دييز,صول,صول دييز,لا,لا دييز,سي"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="ar" aria-label="مستوى الصوت"></div>
         </div>
-        <figcaption>اضغط على مفتاح لتستمع. اضغط على اسم الآلة لتغيير الصوت.</figcaption>
+        <figcaption>اضغط على مفتاح لتستمع. اسحب جانبًا لأوكتافات أخرى وأدر التاج لضبط مستوى الصوت. اسم الآلة يغيّر الصوت والضبط.</figcaption>
       </figure>
     </section>
 
@@ -185,6 +185,7 @@
       <a href="privacy.html">الخصوصية</a>
     </nav>
   </footer>
+  <script src="../assets/synth.js"></script>
   <script src="../assets/watch.js"></script>
 </body>
 </html>

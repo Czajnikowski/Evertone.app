@@ -22,7 +22,10 @@
   "hero.soon": "Coming soon",
   "hero.store": "to the App Store",
   "hero.requirements": "Apple Watch with watchOS 11 or later",
-  "watch.caption": "Tap a pad to listen. Tap the instrument name to change the sound.",
+  "watch.caption": "Tap a pad to listen. Swipe sideways for other octaves and turn the crown for the volume. The instrument name changes the sound and the tuning.",
+  "watch.volume": "Volume",
+  "watch.close": "Close",
+  "watch.back": "Back",
 
   "why.title": "The note, the moment <em>you need it</em>",
   "why.lead": "Your phone is in your bag, the tuning fork has gone missing and there’s no piano nearby. Your watch is always on your wrist. Evertone turns it into a clean tone, ready in a second.",

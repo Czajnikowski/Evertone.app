@@ -13,19 +13,19 @@
         </div>
       </div>
 
-      <figure class="watch">
-        <!-- Left to right in every language, like the pads in the app. -->
+      <figure class="watch" data-strings="{{watchStrings}}">
+        <!-- Left to right in every language, like the pads in the app. watch.js builds the screen. -->
         <div class="watch-body" dir="ltr">
           <div class="watch-case">
-            <div class="watch-screen">
+            <div class="watch-screen" lang="{{lang}}">
               <div class="watch-status">
-                <button type="button" lang="{{lang}}" data-instruments="{{instruments}}" data-label="{{app.instrumentLabel}}" title="{{app.chooseInstrument}}">{{app.piano}}</button>
+                <button type="button" class="watch-instrument" aria-haspopup="dialog" title="{{app.chooseInstrument}}">{{app.piano}}</button>
                 <span aria-hidden="true">9:41</span>
               </div>
-              <div class="pads" role="group" lang="{{lang}}" aria-label="{{octave5}}" data-names="{{app.noteNames}}" data-spoken="{{app.spokenNames}}"></div>
+              <div class="pads" role="group"></div>
             </div>
           </div>
-          <div class="watch-crown" aria-hidden="true"></div>
+          <div class="watch-crown" role="slider" tabindex="0" aria-orientation="vertical" lang="{{lang}}" aria-label="{{watch.volume}}"></div>
         </div>
         <figcaption>{{watch.caption}}</figcaption>
       </figure>
