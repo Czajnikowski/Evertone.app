@@ -1,0 +1,119 @@
+# Builds the site and publishes it to the gh-pages branch, which GitHub Pages serves at evertone.app.
+#
+# - The default branch goes to the root: https://evertone.app/
+# - Every other branch gets a preview: https://evertone.app/preview/<branch>/ (slashes become dashes),
+#   marked noindex, and linked from its pull request as a deployment. Deleting the branch removes it.
+#
+# The app's wording comes from Evertone.watchOS (main, or the branch picked when run by hand), checked out next
+# to this repo as ../watchOS, where tools/sync-app-strings.py looks for it. That repo is private, so it needs the
+# WATCHOS_TOKEN secret: a fine-grained token with read access to its contents. Without it the build uses the
+# committed src/i18n/app.json.
+name: Site
+
+on:
+  push:
+    branches: ['**', '!gh-pages']
+  delete:
+  workflow_dispatch:
+    inputs:
+      watchos-ref:
+        description: Evertone.watchOS branch to take the app's wording from
+        default: main
+
+permissions:
+  contents: write
+
+# One deploy at a time: they all write to gh-pages.
+concurrency:
+  group: gh-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name != 'delete'
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name == github.event.repository.default_branch && 'production' || 'preview' }}
+      url: ${{ steps.publish.outputs.url }}
+    env:
+      HAS_WATCHOS_TOKEN: ${{ secrets.WATCHOS_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: app
+
+      - name: Check out Evertone.watchOS
+        if: env.HAS_WATCHOS_TOKEN == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: Czajnikowski/Evertone.watchOS
+          ref: ${{ inputs.watchos-ref || 'main' }}
+          token: ${{ secrets.WATCHOS_TOKEN }}
+          path: watchOS
+          sparse-checkout: Evertone/Localizable.xcstrings
+          sparse-checkout-cone-mode: false
+
+      - name: Build
+        working-directory: app
+        run: |
+          if [ -d ../watchOS ]; then
+            python3 tools/sync-app-strings.py
+          else
+            echo "::warning::No WATCHOS_TOKEN secret, so the app's wording comes from the committed src/i18n/app.json."
+          fi
+          python3 tools/check-translation.py
+          python3 tools/build.py
+          if ! git diff --quiet; then
+            echo "::warning::The committed pages are out of date; the deploy uses the fresh build. Changed: $(git diff --name-only | tr '\n' ' ')"
+          fi
+
+      - name: Publish
+        id: publish
+        env:
+          BRANCH: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          rsync -a --exclude .git --exclude .github --exclude src --exclude tools --exclude README.md app/ site/
+          git -C app fetch --depth 1 origin gh-pages && git -C app worktree add ../pages FETCH_HEAD \
+            || { git -C app worktree add --detach ../pages && git -C pages checkout --orphan gh-pages && git -C pages rm -rfq .; }
+          if [ "$BRANCH" = "$DEFAULT_BRANCH" ]; then
+            rsync -a --delete --exclude .git --exclude /preview/ site/ pages/
+            echo "url=https://$(cat site/CNAME)/" >> "$GITHUB_OUTPUT"
+          else
+            slug=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9._-]/-/g')
+            rm site/CNAME
+            find site -name '*.html' -exec sed -i 's|<meta charset="utf-8">|&\n  <meta name="robots" content="noindex">|' {} +
+            mkdir -p pages/preview
+            rsync -a --delete site/ "pages/preview/$slug/"
+            echo "url=https://$(cat app/CNAME)/preview/$slug/" >> "$GITHUB_OUTPUT"
+          fi
+          cd pages
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com \
+            commit -qm "Publish $BRANCH at ${GITHUB_SHA::7}"
+          git push origin HEAD:gh-pages
+
+      - name: Summary
+        run: echo "Published ${{ github.ref_name }} at ${{ steps.publish.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"
+
+  remove-preview:
+    if: github.event_name == 'delete' && github.event.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Remove the branch's preview
+        env:
+          BRANCH: ${{ github.event.ref }}
+        run: |
+          slug=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9._-]/-/g')
+          [ -d "preview/$slug" ] || { echo "No preview for $BRANCH."; exit 0; }
+          git rm -rq "preview/$slug"
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com \
+            commit -qm "Remove the preview of $BRANCH"
+          git push origin HEAD:gh-pages
