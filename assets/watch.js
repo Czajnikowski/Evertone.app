@@ -41,8 +41,15 @@
       out.gain.value = 0.35;
       out.connect(compressor).connect(audio.destination);
     }
-    if (audio.state === "suspended") audio.resume();
+    // Also "interrupted" in Safari after a call or another app took the audio.
+    if (audio.state !== "running") audio.resume();
     return audio;
+  }
+
+  // A touch's pointerdown isn't a user gesture, so the first tap makes a suspended context that refuses to resume.
+  // Its clock stands still while suspended, so resuming on the release still sounds the note struck on the press.
+  function unlock() {
+    if (audio && audio.state !== "running") audio.resume();
   }
 
   function envelope(ctx, attack, hold, release, peak = 1) {
@@ -146,7 +153,9 @@
     const pad = event.target.closest(".pad");
     if (pad) strike(pad);
   });
+  pads.addEventListener("pointerup", unlock);
   pads.addEventListener("click", (event) => {
+    unlock();
     const pad = event.target.closest(".pad");
     if (pad && event.detail === 0) strike(pad);
   });
